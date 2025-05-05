@@ -1,4 +1,4 @@
-from stats import count_words, count_letters
+from stats import count_words, count_letters, sort_count_letters
 
 
 def get_book_text(book_path):
@@ -11,7 +11,9 @@ def main():
     book_text = get_book_text("books/frankenstein.txt")
     num_words = count_words(book_text)
     num_letters = count_letters(book_text)
-    print(f"{num_words} words found in the document.\n"
-          f"Letter counts: {num_letters}")
+    letter_list = sort_count_letters(num_letters)
+    print(f"Found {num_words} total words.")
+    for letter in letter_list:
+        print(f"{letter['char']}: {letter['num']}")
 
 main()
